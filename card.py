@@ -31,18 +31,14 @@ class Card(Comparable):
     d. compare:  This method compares this Card with another Card
                  passed in.
     e. __str__: This method returns a string representation of the Card, 
-                 as rank-suit.  Use a tuple with string representations of the 
-
+                 as rank-suit.
     """
-
     def __init__(self, suit, rank):
-    
         """
         Constructor:
         This method is the constructor. It initializes the instance 
         variables with the passed in parameters.
         """
-        ## Add your code here ##
         self.__suit = suit
         self.__rank = rank
         
@@ -50,14 +46,12 @@ class Card(Comparable):
         """
         This method returns the Card's rank.
         """
-        ## Add your code here ##
         return self.__rank
 
     def get_suit(self):
         """
         This method returns the Card's suit.
         """
-        ## Add your code here ##
         return self.__suit
 
     def compare(self, otherCard):
@@ -70,8 +64,6 @@ class Card(Comparable):
         than the passed in Card, and a negative number if this Card is
         less than the passed in Card, and 0 if they are equivalent.
         """
-        
-        ## Add your code here ##
         if self.__rank > otherCard.get_rank():
             return 1
         elif self.__rank < otherCard.get_rank():
@@ -83,9 +75,7 @@ class Card(Comparable):
                 return -1
             else:
                 return 0
-
-
-        
+            
     def __str__(self):
         """
         This method returns a string representation of the Card, as 
@@ -96,11 +86,8 @@ class Card(Comparable):
         K" = Kings.  Let the first element of the tuple be None
         Use the rank and suit of the Card as indexes into the tuples. 
         """
-        
-        ## Add your code here ##
         suits = ("C", "D", "H", "S")
         ranks = (None, "A", "2", "3", "4", "5", "6",
                  "7", "8", "9", "10", "J", "Q", "K")
 
         return str(ranks[self.__rank]) + "-" + str(suits[self.__suit])
-
