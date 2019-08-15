@@ -91,7 +91,6 @@ class CardSorter():
         Deck, a list of Piles and a list of SubSequences and 
         initializes a constant.
         """
-        
         self.__deck = Deck()
         self.__subseqs = list()
         self.__piles = list()
@@ -102,9 +101,6 @@ class CardSorter():
         This method initializes the Deck and shuffles it 5 times
         then display the shuffled deck..
         """
-   
-        ## Add your code here ##
-        # creates the deck
         self.__deck.initialize()
 
         for times in range(5):
@@ -131,8 +127,6 @@ class CardSorter():
            calling the Table makeSortedDeck method
          5.Display the sorted Deck directly - no method call
         """
-        
-        ## Add your code here ##
         self.construct_piles_subseqs()
         self.display_card_piles()
         self.display_longest_subseq()
@@ -184,8 +178,6 @@ class CardSorter():
                  using the add_card_to_subseq method
               d. Push the card_from_deck onto the Pile
         """
-        
-        ## Add your code here ##
         for card in range(self.CARDS_IN_DECK):
             card_from_deck = self.__deck.deal()
             flag = False
@@ -250,36 +242,27 @@ class CardSorter():
                    calling add_card method linking the two Cards.
         
         """
-    
         copied_card = Card(current_card.get_suit(), current_card.get_rank())
-        
         prev_card_subseq = self.find_subseq(prev_card)
 
         if prev_card_subseq is None:
-        
             new_card_subseq = SubSequence()
             new_card_subseq.add_first(copied_card)
             self.__subseqs.append(new_card_subseq)
-
         else:
-
             first_card = prev_card_subseq.first_card()
 
             if first_card.compare(prev_card) == 0:
                 prev_card_subseq.add_first(copied_card)
-
             else:
-
                 subseq_copy = prev_card_subseq.clone_subseq()
                 self.__subseqs.append(subseq_copy)
-
                 for c in range(subseq_copy.get_size()):
                     card = subseq_copy.first_card()
                     if card.compare(prev_card) == 0:
                         break
                     else:
                         subseq_copy.remove_first()
-
                 subseq_copy.add_first(copied_card)
     
     def find_subseq(self, prev_card):
@@ -298,23 +281,18 @@ class CardSorter():
            passed in
         3. Return the SubSequence when found, or None if not found.
         """
-        
-        ## Add your code here ##
         if prev_card is None:
             return None
         else:
             for sequence in self.__subseqs:
                 if sequence.contains_card(prev_card):
                     return sequence
-            ### Tom - move this over - and no else
             return None
         
     def display_card_piles(self):
         """
         This method displays the Card Piles on the Python list
         """
-
-        ## Add your code here ##
         print("The piles:\n")
 
         for p in self.__piles:
@@ -344,22 +322,17 @@ class CardSorter():
         
         print("\nLongest Decreasing Sub-Sequences: \n")
 
-        ## Add your code here ##
-
         for seqs in self.__subseqs:
             if seqs.get_size() == len(self.__piles):
                 print(seqs)
         
         print("\nLongest Increasing Sub-Sequences: \n")
         
-        ## Add your code here ##
         for seq in self.__subseqs:
             if seq.get_size() == len(self.__piles):
-                #### Tom changed these ...
                 cloned_subseq = seq.clone_subseq()
                 cloned_subseq.reverse_subseq()
                 print(cloned_subseq)
-        
         print()
 
     def make_sorted_deck(self):
@@ -389,8 +362,6 @@ class CardSorter():
            4. Get the lowest card from the top of Piles and add it to 
               the Deck.              
         """
-        
-        ## Add your code here ##
         print("The sorted deck:\n")
 
         for i in range(52):
