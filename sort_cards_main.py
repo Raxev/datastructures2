@@ -13,8 +13,8 @@
     This program uses Stacks, Queues, and Linked Lists.
 
 """
-
 from cardSorter import CardSorter
+
 
 def main():
     """
@@ -34,7 +34,6 @@ def main():
           longest increasing SubSequences.    
        6. Uses the Card Piles on the table to return a sorted Deck
     """
-
     rounds = 5
     
     print("Playing {} games.".format(rounds))
@@ -50,5 +49,6 @@ def main():
         print("=========== End Game " + str(run + 1) + " ==========")
 
         print("Simulation complete.")
-    
+
+
 main()

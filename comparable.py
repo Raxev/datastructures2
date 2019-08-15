@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class Comparable():
+class Comparable:
     """
     This class uses a class variable to count the number of times 
     the compare method is called.  It is designed to be inherited  

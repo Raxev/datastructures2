@@ -11,18 +11,16 @@ class _StackNode():
     a. __init__: This method is the constructor and it initializes 
                  each instance variable to the passed in parameters.
     """
-    
     def __init__(self, item, link):
         """
         This method is the constructor and it initializes each
         instance variable to the passed in parameters.
         :type item: object
         """
-        
-        ## Add your code here ##
         self.item = item
         self.next = link
-        
+
+
 class Stack():
     """
     This Stack class is a singly LinkedList implementation of a Stack.
@@ -44,16 +42,11 @@ class Stack():
     g. __str__: This method returns the contents of the Stack as a 
                 string. 
     """
-    
+
     def __init__(self):
         """
         This method is the constructor and it initializes the Stack 
         instance variables, creating an empty Stack.
-        """
-        
-        ## Add your code here ##
-        """
-        Creates an empty stack.
         """
         self._top = None
         self._size = 0
@@ -63,16 +56,12 @@ class Stack():
         This method returns True if the Stack is empty or False 
         otherwise.
         """
-        
-        ## Add your code here ##
         return self._size == 0
 
     def __len__(self):
         """
         This method returns the number of items in the Stack.
         """
-        
-        ## Add your code here ##
         return self._size
 
     def peek(self):
@@ -80,29 +69,21 @@ class Stack():
         This method returns the top item on the Stack without 
         removing it.
         """
-        
-        ## Add your code here ##
         return self._top.item
 
     def pop(self):
         """
         This method removes and returns the top item on the Stack.
         """
-        
-        ## Add your code here ##
         node = self._top
         self._top = node.next
         self._size -= 1
         return node.item
 
-
-
     def push(self, item):
         """
         This method pushes an item onto the top of the Stack.
         """
-        
-        ## Add your code here ##
         self._top = _StackNode(item, self._top)
         self._size += 1
         
@@ -110,14 +91,10 @@ class Stack():
         """
         This method returns the contents of the Stack as a string
         """
-        
-        ## Add your code here ##
-
         stack_str = ""
         current = self._top
 
         while current is not None:
             stack_str += str(current.item) + " "
             current = current.next
-
         return stack_str

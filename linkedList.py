@@ -1,4 +1,4 @@
-class Node():
+class Node:
     """
     This class represents the Node of the LinkedList.
     The instance variables are public for simplicity.
@@ -20,19 +20,17 @@ class Node():
         data instance variable to the passed in parameter and
         the next instance variable to None.
         """
-
-        
-    ## Add your code here ##
         self.data = data
         self.next = None
 
-    # def __str__(self):
-    #     """
-    #     This method returns the data instance variable as a string.
-    #     """
-    # ## Add your code here ##
-        
-class LinkedList():
+    def __str__(self):
+        """
+        This method returns the data instance variable as a string.
+        """
+        return "Node data: " + self.data
+
+
+class LinkedList:
     """
     This class is an implementation of the Singly LinkedList ADT
     where both a head pointer and a tail pointer are used. The 
@@ -69,8 +67,6 @@ class LinkedList():
         This method is the constructor. It initializes the protected 
         instance variables.        
         """
-        
-    ## Add your code here ##
         self._head = None
         self._tail = None
         self._size = 0
@@ -79,7 +75,6 @@ class LinkedList():
         """
         This method returns the number of Nodes in the LinkedList.
         """
-    ## Add your code here ##
         return self._size
         
     def is_empty(self):
@@ -87,7 +82,6 @@ class LinkedList():
         This method returns True, if the LinkedList is empty 
         and False, otherwise.
         """
-    ## Add your code here ##
         return self._head is None
        
     def add_first(self, data):
@@ -97,8 +91,6 @@ class LinkedList():
         the head and tail pointers are updated properly and the 
         size of the LinkedList is incremented.
         """
-        
-        ## Add your code here ##
         new_node = Node(data)
         if self.is_empty():
             self._head = new_node
@@ -116,8 +108,6 @@ class LinkedList():
         size of the LinkedList is incremented. You may call
         add_first to do this wrok when the LinkedList is empty.
         """
-        
-    ## Add your code here ##
         new_node = Node(data)
         if self.is_empty():
             # Adds the card
@@ -136,8 +126,6 @@ class LinkedList():
         properly and the size of the LinkedList is decremented. 
         If the LinkedList is empty, None is returned.
         """
-        
-    ## Add your code here ##
         current = self._head
 
         if current is not None:
@@ -157,8 +145,6 @@ class LinkedList():
         with each Node's data on a separate line starting with the 
         head of the LinkedList.
         """
-        
-    ## Add your code here ##
         data_str = ""
         current = self._head
         for d in range(self._size):

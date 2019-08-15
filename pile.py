@@ -1,6 +1,7 @@
 from card import Card
 from stack_llist import Stack
 
+
 class Pile(Stack):
     """
     This class represents a pile of Cards on the table. This class 
@@ -27,14 +28,11 @@ class Pile(Stack):
                 Rank-Suit Rank-Suit etc, by calling the string method 
                 of the Stack class using super().
     """
-    
     def __init__(self):
         """
         This method is the constructor. Call the Stack constructor 
         using super().
         """
-        
-        ## Add your code here ##
         super().__init__()
     
     def add_card(self, card):
@@ -42,8 +40,6 @@ class Pile(Stack):
         This method pushes the passed in Card onto the top of 
         the Pile.
         """
-        
-        ## Add your code here ##
         self.push(card)
 
     def get_top_card(self):
@@ -51,16 +47,12 @@ class Pile(Stack):
         This method returns the top Card in the Pile without 
         removing it
         """
-        
-        ## Add your code here ##
         return self.peek()
         
     def remove_card(self):
         """
         This method pops off the top Card from the Pile
         """
-        
-        ## Add your code here ##
         return self.pop()
 
     def __str__(self):
@@ -70,5 +62,4 @@ class Pile(Stack):
         Rank-Suit Rank-Suit Rank-Suit etc, by calling the 
         string method of the Stack class using super().
         """
-        ## Add your code here ##
         return super().__str__()

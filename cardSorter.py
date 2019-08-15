@@ -3,7 +3,8 @@ from card import Card
 from pile import Pile
 from subSequence import SubSequence
 
-class CardSorter():
+
+class CardSorter:
     """
     This class implements the card game simulation using many methods.
     It implements both the sorting card game and the formation and 
@@ -83,14 +84,14 @@ class CardSorter():
                          up the smallest Card from the top of the 
                          Piles, one at a time and adding them to end 
                          of the Deck.
-    """ 
-    
+    """
     def __init__(self):
         """
         This method is the constructor for CardSorter. It creates the 
         Deck, a list of Piles and a list of SubSequences and 
         initializes a constant.
         """
+        
         self.__deck = Deck()
         self.__subseqs = list()
         self.__piles = list()
@@ -251,18 +252,19 @@ class CardSorter():
             self.__subseqs.append(new_card_subseq)
         else:
             first_card = prev_card_subseq.first_card()
-
             if first_card.compare(prev_card) == 0:
                 prev_card_subseq.add_first(copied_card)
             else:
                 subseq_copy = prev_card_subseq.clone_subseq()
                 self.__subseqs.append(subseq_copy)
+
                 for c in range(subseq_copy.get_size()):
                     card = subseq_copy.first_card()
                     if card.compare(prev_card) == 0:
                         break
                     else:
                         subseq_copy.remove_first()
+
                 subseq_copy.add_first(copied_card)
     
     def find_subseq(self, prev_card):
@@ -327,7 +329,7 @@ class CardSorter():
                 print(seqs)
         
         print("\nLongest Increasing Sub-Sequences: \n")
-        
+
         for seq in self.__subseqs:
             if seq.get_size() == len(self.__piles):
                 cloned_subseq = seq.clone_subseq()

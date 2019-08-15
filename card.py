@@ -1,5 +1,6 @@
 from comparable import Comparable
 
+
 class Card(Comparable):
     """
     This class represents a Comparable playing Card, inheriting from
@@ -31,7 +32,8 @@ class Card(Comparable):
     d. compare:  This method compares this Card with another Card
                  passed in.
     e. __str__: This method returns a string representation of the Card, 
-                 as rank-suit.
+                 as rank-suit.  Use a tuple with string representations of the 
+
     """
     def __init__(self, suit, rank):
         """
@@ -75,7 +77,7 @@ class Card(Comparable):
                 return -1
             else:
                 return 0
-            
+
     def __str__(self):
         """
         This method returns a string representation of the Card, as 

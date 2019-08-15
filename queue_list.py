@@ -15,14 +15,11 @@ class Queue():
     e. dequeue: This method removes and returns the first item in 
                 the Queue.
     """
-    
     def __init__(self):
         """
         This method creates the empty Queue which is represented 
         by a Python list instance variable.
         """
-        
-        ## Add your code here ##
         self._items = list()
 
     def is_empty(self):
@@ -30,16 +27,12 @@ class Queue():
         This method returns True, if the Queue is empty or False 
         otherwise.
         """
-        
-        ## Add your code here ##
         return len(self) == 0
 
     def __len__(self):
         """
         This method returns the number of items in the Queue.
         """
-        
-        ## Add your code here ##
         return len(self._items)
 
     def enqueue(self, item):
@@ -47,14 +40,10 @@ class Queue():
         This method adds the passed in item to the Queue in the back.
         :type item: object
         """
-        
-        ## Add your code here ##
         self._items.append(item)
 
     def dequeue(self):
         """
         This method removes and returns the first item in the Queue.
         """
-        
-        ## Add your code here ##
         return self._items.pop(0)

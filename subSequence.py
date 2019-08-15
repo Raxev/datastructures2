@@ -1,6 +1,7 @@
 from copy import deepcopy
 from linkedList import LinkedList
 
+
 class SubSequence(LinkedList):
     """
     This class represents a SubSequence of Cards from the Deck.
@@ -34,14 +35,11 @@ class SubSequence(LinkedList):
     g. __str__ : This method returns a string of the Cards in the 
                  SubSequence.                  
     """
-    
     def __init__(self):
         """
         This method is the SubSequence constructor.  Call the
         LinkedList constructor using super()
         """
-        
-        ## Add your code here ##
         super().__init__()
         
     def first_card(self):
@@ -49,8 +47,6 @@ class SubSequence(LinkedList):
         This method returns a reference to the Card at the head 
         of the LinkedList without removing it.
         """
-        
-        ## Add your code here ##
         return self._head.data
 
         
@@ -59,8 +55,6 @@ class SubSequence(LinkedList):
         This method adds a Node to the front of the LinkedList 
         containing the passed in Card
         """
-        
-        ## Add your code here ##
         self.add_first(card)
 
     def contains_card(self, card):
@@ -69,15 +63,12 @@ class SubSequence(LinkedList):
         and returns true if Card is in this SubSequence, or False
         if not.
         """
-              
-        ## Add your code here ##
         current = self._head
         while current is not None:
             if current.data.compare(card) == 0:
                 return True
             current = current.next
         return False
-
 
     def clone_subseq(self):
         """
@@ -87,9 +78,6 @@ class SubSequence(LinkedList):
         Add the copied Node at the END of the new SubSequence 
         being returned.
         """
-
-        ## Add your code here ##
-
         new_subseq = SubSequence()
         current = self._head
         while current is not None:
@@ -105,7 +93,6 @@ class SubSequence(LinkedList):
         grab the Node in front of current_node, as it walks the
         LinkedList. 
         """
-        
         prev_node = None
         current_node = self._head
         for n in range(self.get_size()):
@@ -113,7 +100,6 @@ class SubSequence(LinkedList):
             current_node.next = prev_node
             prev_node = current_node
             current_node = next_node
-
         self._head = prev_node
 
     def __str__(self): 
@@ -124,11 +110,6 @@ class SubSequence(LinkedList):
         data_str = ""
         current = self._head
         while current is not None:
-            ### Tom - no newline,
             data_str += str(current.data) + " "
             current = current.next
         return data_str
-
-
-    
-       
