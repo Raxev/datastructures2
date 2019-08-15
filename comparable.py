@@ -1,36 +1,88 @@
-from abc import ABC, abstractmethod
-class Comparable():
-    """
-    This class uses a class variable to count the number of times 
-    the compare method is called.  It is designed to be inherited  
-    from classes that implement the compare method, who want to 
-    keep a count of the number of compares performed in the program.
-    The subclass should first call this base class compare method, 
-    and then do the comparison between itself and another object 
-    of its same type.
-    
-    This class can also be used to force the subclass who inherits 
-    from it to implement the compare method without needing to 
-    count the compares. 
-    
-    The class variable is __num_compares and it is initialized to 0.
-    
-    The abstract method is compare and the other two class methods
-    are:
-    1. get_num_compares(cls): returns the number of compares     
-    2. clear_compares(cls): resets the number of compares to 0.    
-    """ 
-    
-    __num_compares = 0 
+import random
+from card import Card
+from queue_list import Queue
 
-    @abstractmethod     
-    def compare(object):
-        Comparable.__num_compares += 1
+
+class Deck(Queue):
+    """
+    This class represents a Deck of Cards. This class inherits from
+    the Queue class, which has a Python list to hold the Cards in 
+    the Deck. The Cards are enqueued which adds them to the end of 
+    the Python list. The Cards are dequeued when dealt which removes 
+    them from the front of the Python list.
     
-    @classmethod
-    def get_num_compares(cls):
-        return Comparable.__num_compares
+    There are no instance variables for this class, except for those
+    inherited from the Queue class: The Python list: self._items
+
+    The class methods include 
+    a. __init__: This method is the Deck constructor. Call the Queue 
+                 constructor.
+    b. initialize: This method initializes all 52 Cards with their 
+                   suit and rank.
+    c. add_card: This method adds a Card to the Deck using enqueue.
+    d. deal: This method removes the first Card from the Deck using 
+             dequeue.
+    e. shuffle: This method uses the random class shuffle method that 
+                accepts a Python list as an argument and shuffles the 
+                elements of the Queue's Python list and returns the 
+                shuffled Deck.
+    f. __str__: This method returns a string containing the Cards 
+                in the Deck: 13 Cards to a line - The "\n" character 
+                is added for every 13th Card
+    """
+    def __init__(self):
+        """
+        This method is the Deck constructor. Call the Queue 
+        constructor using super().
+        """
+        super().__init__()
     
-    @classmethod
-    def clear_compares(cls):
-        Comparable.__num_compares = 0
+    def initialize(self):    
+        """
+        This method initializes the Deck with 52 Cards. Both the suits 
+        and ranks are integers: 
+        Suits: 0=Clubs, 1=Diamonds, 2=Hearts, 3=Spades
+        Ranks: 1 = Ace, 2-10 = 2-10, 11 = Jacks, 12 = Queen, 13 = King
+        """
+        for suit in range(4):
+            for rank in range(1,14):
+                card = Card(suit,rank)
+                self.enqueue(card)
+        
+    def add_card(self, card):
+        """
+        This method adds a Card to the Deck using enqueue.
+        """
+        self.enqueue(card)
+
+    def deal(self):
+        """
+        This method removes the first Card from the Deck using 
+        dequeue.
+        """
+        return self.dequeue()
+
+    def shuffle(self):        
+        """
+        This method uses the random class shuffle method that accepts 
+        a list as an argument to shuffle the elements of the Queue's 
+        Python list and returns the shuffled Deck.
+        """
+        for times in range(6):
+            random.shuffle(self._items)
+        return self
+    
+    def __str__(self):
+        """
+        This method returns a string containing the Cards in the Deck: 
+        13 Cards to a line - The "\n" character is added for every 
+        13th Card
+        """
+        deck_str = ""
+        for c in range(len(self._items)):
+            # "Get the Card at index c since Deck is
+            # a list of cards."
+            deck_str += "{} ".format(self._items[c])
+            if (c+1 )% 13 == 0:
+                deck_str += '\n'
+        return deck_str
